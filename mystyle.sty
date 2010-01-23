@@ -1,0 +1,121 @@
+\ProvidesPackage{mystyle}
+
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{color}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsfonts}
+\usepackage[pdftex]{graphicx}
+\usepackage{fancyhdr}
+\usepackage[american]{babel}
+\usepackage{cite}
+\usepackage{latexsym}
+\usepackage[labelstoglobalaux]{bibunits}
+\usepackage{siunitx}
+\usepackage{verbatim}
+\usepackage{varioref}
+\usepackage{tikz}
+\usepackage{makeidx}
+\usepackage{aurical}
+\usepackage{xkvltxp}
+\usepackage[colorlinks]{hyperref}
+\usepackage[refpage]{nomencl}
+
+% INDEX
+\makeindex
+
+%% tikz
+%\usetikzlibrary{scopes}
+%\def\iangle{35} % Angle of the inclined plane
+%\def\down{-90}
+%\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+
+
+%% Fancy Header
+\setlength{\headheight}{15pt}
+ 
+\pagestyle{fancyplain}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+  
+\lhead{\fancyplain{}{\thepage}}
+\chead{}
+\rhead{\fancyplain{}{\textit{\leftmark}}}
+\lfoot{}
+\cfoot{}
+\rfoot{}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\vect}[1]{\mathbf{#1}}
+\setcounter{tocdepth}{4}
+
+\setlength{\parskip}{3ex plus 2ex minus 2ex} %Rubber Band Paragraph Spacing
+\widowpenalty=300 %Orphan and widow control
+\clubpenalty=300
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+% New definition of square root:
+% it renames \sqrt as \oldsqrt
+\let\oldsqrt\sqrt
+% it defines the new \sqrt in terms of the old one
+\def\sqrt{\mathpalette\DHLhksqrt}
+\def\DHLhksqrt#1#2{%
+\setbox0=\hbox{$#1\oldsqrt{#2\,}$}\dimen0=\ht0
+\advance\dimen0-0.2\ht0
+\setbox2=\hbox{\vrule height\ht0 depth -\dimen0}%
+{\box0\lower0.4pt\box2}}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Theorem and defs
+\theoremstyle{plain}
+\newcounter{thmCounter}
+\renewcommand\thethmCounter{\thesubsection.\arabic{thmCounter}}
+\newenvironment{ex}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Example~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{defn}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Definition~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{thm}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Theorem~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{lem}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Lemma~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{ax}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Axiom~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{exe}{\begin{flushleft}%
+	\textbf{\refstepcounter{thmCounter}Exercise~\thethmCounter:}}
+	{\end{flushleft}}
+
+%% QED
+\renewcommand{\qedsymbol}{\qedhere}
+
+%% Logic
+\renewcommand{\land}{\wedge}
+\renewcommand{\lor}{\vee}
+
+
+
+%% BIB STUFF
+%\bibliographyunit[\section]
+\bibliographyunit[\chapter]
+\defaultbibliography{bibs}
+\defaultbibliographystyle{plain}
+
+%% Define del character
+\newcommand{\del}{\nabla}
+
+%% Turn off indenting
+\setlength{\parindent}{0in}
+
+%% AMSFONTs
+\newcommand{\field}[1]{\mathbb{#1}}
+\newcommand{\set}[1]{\mathfrak{#1}}
+
+%% Nomenclature
+\makenomenclature
+

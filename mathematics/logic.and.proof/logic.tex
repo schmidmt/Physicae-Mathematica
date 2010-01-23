@@ -1,0 +1,151 @@
+\section{Logic}
+Since mathematics is entirely a human construction, proof is the only way to verify if an idea is true.
+To prove an idea true, it must be shown to be logically (non-interpretively) true. To do this we first develop a statement which contains the idea, thereby bringing us to our first definition.
+
+\begin{defn}
+	\index{Statement}
+	A \underline{\emph{statement}} is a phrase which is either true or false. A statement can be represented by a letter for simplicity and compactness.
+\end{defn}
+
+\begin{ex}
+	The phrase P="The sky is blue" is a true statement.\\
+	The phrase Q="The sky is brown" is a false statement.
+\end{ex}
+
+It is also useful to define the negation of a statement as follows:
+\begin{defn}
+	\index{Negation $\neg$}
+	\nomenclature{$ \land $}{Logical And. True if all elements are true and false otherwise.}
+	The \underline{\emph{Negation}} ($\neg$) of a statement is true when the statement is false and false if the statement is true.
+	The statement $\neg P$ is pronounced "Not P".
+\end{defn}
+
+\begin{ex} Using the examples above:\\
+	$\neg P=$"The sky is not blue", which is a false statement\\
+	$\neg Q=$"The sky is not brown", which is a true statement.
+\end{ex}
+
+\subsection{And and Or}
+This construction allows us to create simple statements, however it is often necessary to built more complicated statements to reflect more complex ideas.
+First we can consider an operator that requires both statements to be true and will be false under any other circumstance.
+
+\begin{defn}
+	\index{And, Logical $\land$}
+	\nomenclature{$ \lor $}{Logical Or. True if any elements is true and false otherwise.}
+	A \underline{\emph{conjunction operator}}, or "And" ($\land$), connects logical statements and is true if all statements are true and false if any are false.
+\end{defn}
+
+The truth table for the conjunction operator is as follows:
+\begin{center}
+	\begin{tabular}{cc|c}
+		$P$ & $Q$ & $P \land Q$ \\
+		\hline
+		T & T & T \\
+		T & F & F \\
+		F & T & F \\
+		F & F & F \\
+	\end{tabular}
+\end{center}
+
+So what happens if we take the negation of the statement $P \land Q$?
+Well, the statement says, "Not both P and Q", which can be interpreted as "neither P nor Q", which again can be rewritten as "Not P or Not Q".
+Using this idea or an \emph{or} connective we can define the disjunction operator as follows:
+
+\begin{defn}
+	\index{Or, Logical $\lor$}
+	A \underline{\emph{disjunction operator}}, or "Or" ($\lor$), connects logical statements and is true if any statements are true and false if all are false.
+\end{defn}
+
+So lets look at the truth table for the disjunction operator with the conjunction operator.
+
+\begin{center}
+	\begin{tabular}{cc|ccc}
+		$P$ & $Q$ & $P \land Q$ & $P \lor Q$ & $\neg P \lor \neg Q$ \\
+		\hline
+		T & T & T & T & F \\
+		T & F & F & T & T \\
+		F & T & F & T & T \\
+		F & F & F & F & T \\
+	\end{tabular}
+\end{center}
+
+From this we can see that $\neg (P \land Q)$ is equivalent to $\neg P \lor \neg Q$.
+We can also look at the negation of the statement $P \lor Q$ by looking at it as the sentence, "Not either P or Q", and the only time that will work is when both P and Q are false, so the sentence becomes, "Not P and Not Q".
+This can be rewritten as $\neg P \land \neg Q$.
+This brings us to our first theorem, originally stated as laws by De Morgan.
+
+\begin{thm}
+	\index{De Morgani's Laws (Logic Version)}
+	\textbf{(De Morgan's Laws)} \\
+	\label{Thm:DeMorganLogic}
+	\begin{equation}
+		\nonumber
+		\neg ( P \land Q ) \iff \neg P \lor \neg Q
+	\end{equation}
+	\begin{equation}
+		\nonumber
+		\neg ( P \lor Q ) \iff \neg P \land \neg Q
+	\end{equation}
+\end{thm}
+Here the symbol $\iff$ means logically equivalent, we will generalize its means as the "if and only if" operator later in the chapter.
+
+\begin{proof}
+	To prove theorem \ref{Thm:DeMorganLogic} we can construct the truth tables for the statements involved relatively simply.
+	\begin{table*}[ht]
+	\begin{center}
+	\begin{tabular}{cc|cc|cccccc}
+			$P$ & $Q$ & $\neg P$ & $\neg Q$ & $P \land Q$ & $\neg (P \land Q)$ & $P \lor Q$ & $\neg (P \lor Q)$ & $\neg P \lor \neg Q$ & $\neg P \land \neg Q$ \\
+			\hline
+			T & T & F & F & T & F & T & F & F & F \\
+			T & F & F & T & F & T & T & F & T & F \\
+			F & T & T & F & F & T & T & F & T & F \\
+			F & F & T & T & F & T & F & T & T & T \\
+	\end{tabular}
+	\end{center}
+	\end{table*}
+	Since there are only four possible inputs for these operators, all possibilities have been shown and the theorem is proved.
+\end{proof}
+
+\begin{thm}
+	\textbf{Properties of Logical Operators}\\
+	\label{thm:proplogical}
+	\textbf{Distributivity}: $(A \land B) \lor C \iff (A \lor C) \land (B \lor C)$ and $(A \lor B) \land C \iff (A \land C) \lor (B \land C)$
+	
+\end{thm}
+
+\subsection{Implication}
+We are ultimately concerned with using logic to show how two idea are connected.
+Usually this connectedness is expressed in the form of a conditionals of the form, "If \emph{something} then \emph{something else}."
+In terms of logic when a true statement causes another to also be true an implication is formed.
+We can now define the implication as follows:
+
+\begin{defn}
+	\index{Implication, $ \Rightarrow $}
+	An \emph{\underline{implication}} ($A \Rightarrow B$) between means that if A is true, so must B.
+\end{defn}
+With this definition, if A is false then B is unrestricted and can be anything.
+So if A is false, the statement will always be true since a false statement implies anything.
+We also note that if A is true but B is false, that would suggest that A doesn't imply B, so the statement is false.
+Using this we can construct a truth table for an implication.
+
+\begin{center}
+	\begin{tabular}{cc|c}
+		$P$ & $Q$ & $P \Rightarrow Q$ \\
+		\hline
+		T & T & T \\
+		T & F & F \\
+		F & T & T \\
+		F & F & T \\
+	\end{tabular}
+\end{center}
+
+So if $A \Rightarrow B$ is true, then a false B would imply a false A.
+This brings us to the definition of the contrapositive.
+
+\begin{defn}
+	\index{Contrapositive}
+	Given $A \Rightarrow B$, $\neg B \Rightarrow \neg A$ is called the contrapositive of $A \Rightarrow B$.
+\end{defn}
+
+
+

@@ -1,0 +1,29 @@
+\chapter{Calculus of Variations}
+%
+%\begin{dfn}
+%       	Calculus of variations 
+%\end{dfn}
+
+A path integral is defined as the integral on a path along $C$ in space.
+Mathematically this looks like
+\begin{equation}
+	I = \int_C f(y(x), y'(x), x) \, dx 
+\end{equation}
+where $y:\field{R} \rightarrow \field{R}$, $y \in \set{CD} $.
+For a conservative\footnote{See \vref{sec:noether}} potential $\phi$, 
+\begin{equation}
+	\int^{\vect{r}_1}_{\vect{r}_0} \del{\phi} \, d\vect{r} = \phi(\vect{r}_1) -\phi(\vect{r}_0) .
+\end{equation}
+However for non-conservative potential the solution will depend on the path taken.
+The goal of calculus of variations is to solve for the extrema of I.
+To do this we can define a perturbation to the field $y$ by letting 
+\begin{equation}
+	y(x) \, \rightarrow \, y(x,\mu) = y(x) + \mu \eta(x) 
+\end{equation}
+where $\mu \in \field{R}$ and $\eta:\field{R} \rightarrow \field{R}$, $\eta \in \set{CD}$ which vanishes and the endpoints of $C$.
+Using the $\mu$ variable to scan over all perturbations it is possible to find the extrema by
+\begin{equation}
+	\frac{\partial{I}}{\partial{\mu}}\vert_{\mu = 0} = 0
+\end{equation}
+
+
