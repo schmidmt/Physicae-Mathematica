@@ -1,5 +1,5 @@
-#!/bin/csh
-foreach auxfile (bu*.aux)
-	echo bibtex `basename $auxfile .aux`
+#!/bin/bash
+for auxfile in bu*.aux; do
+	echo "bibtex `basename $auxfile .aux`"
 	bibtex `basename $auxfile .aux`
-end
+done

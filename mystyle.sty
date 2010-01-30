@@ -47,7 +47,6 @@
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\newcommand{\vect}[1]{\mathbf{#1}}
 \setcounter{tocdepth}{4}
 
 \setlength{\parskip}{3ex plus 2ex minus 2ex} %Rubber Band Paragraph Spacing
@@ -72,50 +71,67 @@
 \theoremstyle{plain}
 \newcounter{thmCounter}
 \renewcommand\thethmCounter{\thesubsection.\arabic{thmCounter}}
+
 \newenvironment{ex}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Example~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Example~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{defn}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Definition~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Definition~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{thm}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Theorem~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Theorem~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{lem}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Lemma~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Lemma~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{ax}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Axiom~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Axiom~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{exe}{\begin{flushleft}%
-	\textbf{\refstepcounter{thmCounter}Exercise~\thethmCounter:}}
+	\refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
 	{\end{flushleft}}
+%%%%%%%%%%%%%%%%%%%%%%%%
+
+
 
 %% QED
 \renewcommand{\qedsymbol}{\qedhere}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Logic
 \renewcommand{\land}{\wedge}
 \renewcommand{\lor}{\vee}
-
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 %% BIB STUFF
 %\bibliographyunit[\section]
 \bibliographyunit[\chapter]
-\defaultbibliography{bibs}
-\defaultbibliographystyle{plain}
+\bibliography*{bibs}
+\bibliographystyle*{plain}
+\bibliographyunit
+
+\let\stdthebibliography\thebibliography
+\renewcommand{\thebibliography}{%
+\let\chapter\subsection
+\stdthebibliography}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Define del character
 \newcommand{\del}{\nabla}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Turn off indenting
 \setlength{\parindent}{0in}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
-%% AMSFONTs
+%% Math Symbols
 \newcommand{\field}[1]{\mathbb{#1}}
 \newcommand{\set}[1]{\mathfrak{#1}}
+\newcommand{\vect}[1]{\mathbf{#1}}
+%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Nomenclature
 \makenomenclature
+%%%%%%%%%%%%%%%%%%%%%%%%
 
