@@ -1,4 +1,3 @@
-%$Id: book.tex 15 2010-01-14 21:50:18Z schmidmt $%
 %\documentclass[10pt,twoside,a4paper]{book}
 \documentclass[10pt,twoside,a4paper,twocolumn]{book}
 %\documentclass[10pt,twoside,a4paper,titlepage,draft]{book}
@@ -16,6 +15,7 @@
 \include{preface}
 
 \part{Mathematics}
+\startsoln
 \input{./mathematics/intro}
 \include{mathematics/logic.and.proof/logic.and.proof}
 \include{mathematics/relations/relations}
@@ -40,9 +40,15 @@
 \include{physics/particle/particle}
 \include{physics/computational/computational}
 
+\stopsoln
+
 \part{Reference}
 
 \appendix
+\chapter{Solutuons}
+%\addcontentsline{toc}{Section}{Solutions}
+\putsoln
+
 \onecolumn
 \input{appendixes/lic}
 \twocolumn
@@ -53,6 +59,7 @@
 
 \addcontentsline{toc}{Section}{Symbols and Nomenclature}
 \printnomenclature
+
 
 \addcontentsline{toc}{Section}{Index}
 \printindex

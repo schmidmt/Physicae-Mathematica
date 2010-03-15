@@ -1,41 +1,59 @@
 \section{Logic}
-Since mathematics is entirely a human construction, proof is the only way to verify if an idea is true.
-To prove an idea true, it must be shown to be logically (non-interpretively) true. To do this we first develop a statement which contains the idea, thereby bringing us to our first definition.
+
+So we start our discussion of logic with an idea.
+Now ideas can be seen to have two distinct values of validity: true and false.
+We refine these ideas into a statement, which is defined as follows:
 
 \begin{defn}
 	\index{Statement}
-	A \underline{\emph{statement}} is a phrase which is either true or false. A statement can be represented by a letter for simplicity and compactness.
+	A \underline{\emph{statement}} is a phrase which is either true or false. (A statement can be represented by a letter for simplicity and compactness.)
 \end{defn}
 
+So a statement encompasses an entire idea and can be evaluated to determine its validity
+
 \begin{ex}
-	The phrase P="The sky is blue" is a true statement.\\
-	The phrase Q="The sky is brown" is a false statement.
+    For instance we have the following statements:
+	\begin{center}
+    P="The sky is blue".\\
+	Q="The sky is brown".
+    \end{center}
+    We see the statement P is \emph{True} while the statement Q is \emph{False}.
 \end{ex}
 
-It is also useful to define the negation of a statement as follows:
+So what if our statement is simply the opposite of another statement, how can we easily represent it?
+We have invented notation for this exact purpose, it is called the negation and is defined like so:
+
 \begin{defn}
 	\index{Negation $\neg$}
 	\nomenclature{$ \land $}{Logical And. True if all elements are true and false otherwise.}
 	The \underline{\emph{Negation}} ($\neg$) of a statement is true when the statement is false and false if the statement is true.
-	The statement $\neg P$ is pronounced "Not P".
+	(The statement $\neg P$ is written in other words as "Not P".)
 \end{defn}
 
-\begin{ex} Using the examples above:\\
-	$\neg P=$"The sky is not blue", which is a false statement\\
-	$\neg Q=$"The sky is not brown", which is a true statement.
+\begin{ex}
+    Using the examples above:
+    \begin{center}
+	$\neg P=$"The sky is not blue".\\
+	$\neg Q=$"The sky is not brown".
+    \end{center}
+    Here $\neg P$ is \emph{False} and $\neg Q$ is \emph{True}.
 \end{ex}
 
 \subsection{And and Or}
-This construction allows us to create simple statements, however it is often necessary to built more complicated statements to reflect more complex ideas.
-First we can consider an operator that requires both statements to be true and will be false under any other circumstance.
+So far we have only been able to create very simple statements, but what if we want to combine multiple statements into a larger statement?
+We can combine them using connectives \emph{and} and \emph{or}.
+Since in language these two words are defined very vaugely, we will give them exact definitions so they may be used precisely.
 
 \begin{defn}
 	\index{And, Logical $\land$}
 	\nomenclature{$ \lor $}{Logical Or. True if any elements is true and false otherwise.}
-	A \underline{\emph{conjunction operator}}, or "And" ($\land$), connects logical statements and is true if all statements are true and false if any are false.
+	A \underline{\emph{conjunction operator}}, or "And" ($\land$), connects logical statements which is defined to be true if all statements are true and false if any are false.
 \end{defn}
 
+To help better understand how these operators work we use a table which places all possible inputs with their corresponding outputs in a table.
+This table is then called a truth table where the two possibilities are true(T) and false(F) for every field.
 The truth table for the conjunction operator is as follows:
+
 \begin{center}
 	\begin{tabular}{cc|c}
 		$P$ & $Q$ & $P \land Q$ \\
@@ -75,7 +93,7 @@ This can be rewritten as $\neg P \land \neg Q$.
 This brings us to our first theorem, originally stated as laws by De Morgan.
 
 \begin{thm}
-	\index{De Morgani's Laws (Logic Version)}
+	\index{De Morgan's Laws (Logic Version)}
 	\textbf{(De Morgan's Laws)} \\
 	\label{Thm:DeMorganLogic}
 	\begin{equation}
@@ -148,4 +166,9 @@ This brings us to the definition of the contrapositive.
 \end{defn}
 
 
-
+\begin{exe}
+    TEST
+    \begin{soln}
+        TEST1
+    \end{soln}
+\end{exe}

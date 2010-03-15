@@ -1,6 +1,7 @@
 \ProvidesPackage{mystyle}
 
 \usepackage[T1]{fontenc}
+\usepackage[light,math]{iwona}
 \usepackage{geometry}
 \usepackage{color}
 \usepackage{amsmath}
@@ -8,7 +9,7 @@
 \usepackage{amsfonts}
 \usepackage[pdftex]{graphicx}
 \usepackage{fancyhdr}
-\usepackage[american]{babel}
+\usepackage[english]{babel}
 \usepackage{cite}
 \usepackage{latexsym}
 \usepackage[labelstoglobalaux]{bibunits}
@@ -21,6 +22,13 @@
 \usepackage{xkvltxp}
 \usepackage[colorlinks]{hyperref}
 \usepackage[refpage]{nomencl}
+\usepackage{lipsum}
+
+
+%lipsum default
+\setlipsumdefault{0}
+
+\selectlanguage{english}
 
 % INDEX
 \makeindex
@@ -35,15 +43,20 @@
 %% Fancy Header
 \setlength{\headheight}{15pt}
  
-\pagestyle{fancyplain}
+\pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
-  
-\lhead{\fancyplain{}{\chaptermark}}
-\chead{}
-\rhead{\fancyplain{}{\textit{\leftmark}}}
-\lfoot{}
-\cfoot{\fancyplain{}{\thepage}}
-\rfoot{}
+\renewcommand{\sectionmark}[1]{\markright{#1}{}}
+
+\fancyhf{}
+\fancyhead[LE,RO]{\thepage}
+\fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
+\fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
+ 
+\fancypagestyle{plain}{ %
+\fancyhf{} % remove everything
+\renewcommand{\headrulewidth}{0pt} % remove lines as well
+\renewcommand{\footrulewidth}{0pt}}
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%
@@ -135,3 +148,23 @@
 \makenomenclature
 %%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%% Subrutines for handeling Exercises %%%
+\newcommand{\startsoln}[0]{%
+    \newwrite\out%
+    \immediate\openout\out=solns_temp.tex%
+}
+
+%\newcommand{\addsoln}[1]{%
+%    \immediate\write\out{#1}%
+%}
+\newenvironment{soln}{\begin{flushleft}\textbf{Solution~\thethmCounter:}}{\end{flushleft}}
+
+
+\newcommand{\stopsoln}[0]{%
+    \immediate\closeout\out%
+}
+
+\newcommand{\putsoln}[0]{%
+    \input{solns_temp}%
+}
