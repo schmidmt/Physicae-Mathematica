@@ -24,6 +24,10 @@
 \usepackage[refpage]{nomencl}
 \usepackage{lipsum}
 
+%Writing aids
+%\usepackage{showkeys}
+%\usepackage{showidx}
+
 
 %lipsum default
 \setlipsumdefault{0}
@@ -34,11 +38,17 @@
 \makeindex
 
 %% tikz
-%\usetikzlibrary{scopes}
-%\def\iangle{35} % Angle of the inclined plane
-%\def\down{-90}
-%\def\arcr{0.5cm} % Radius of the arc used to indicate angles
+\usetikzlibrary{%
+    decorations.fractals%
+    ,decorations.pathmorphing%
+    ,shadows%
+}
 
+%Set figure and equation numbering correctly for the book format
+%\numberwithin{equation}{section}
+%\numberwithin{figure}{section}
+\numberwithin{figure}{chapter}
+\numberwithin{equation}{chapter}
 
 %% Fancy Header
 \setlength{\headheight}{15pt}
@@ -56,8 +66,6 @@
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0pt}}
-
-
 
 %%%%%%%%%%%%%%%%%%%%%%%%
 \setcounter{tocdepth}{4}

@@ -8,10 +8,6 @@ default :
 	makeindex physicae.idx
 	pdflatex physicae
 
-src :
-	$(default)
-	scp physicae.pdf rtt:public_html/.
-
 clean :
 	find . -iname "*.aux" -exec rm {} \;
 	find . -iname "*.bak" -exec rm {} \;
