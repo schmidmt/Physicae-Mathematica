@@ -3,7 +3,7 @@
 \usepackage[T1]{fontenc}
 \usepackage[light,math]{iwona}
 \usepackage{geometry}
-\usepackage{color}
+\usepackage[usenames,dvipsnames]{color}
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
@@ -23,6 +23,7 @@
 \usepackage[colorlinks]{hyperref}
 \usepackage[refpage]{nomencl}
 \usepackage{lipsum}
+\usepackage{ifthen}
 
 %Writing aids
 %\usepackage{showkeys}
@@ -91,25 +92,34 @@
 % Theorem and defs
 \theoremstyle{plain}
 \newcounter{thmCounter}
+\newcounter{axiomCounter}
+\newcounter{axiomPart}[axiomCounter]
 \renewcommand\thethmCounter{\thesubsection.\arabic{thmCounter}}
+\newcommand\theAxiomPartCounter{\thesubsection.\arabic{axiomCounter} Part \Roman{axiomPart}}
 
 \newenvironment{ex}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Example~\thethmCounter:}}
+	\refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{defn}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Definition~\thethmCounter:}}
+	\refstepcounter{thmCounter}\color{Bittersweet}\textbf{Definition~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{thm}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Theorem~\thethmCounter:}}
+	\refstepcounter{thmCounter}\color{Blue}\textbf{Theorem~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{lem}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Lemma~\thethmCounter:}}
+	\refstepcounter{thmCounter}\color{Sepia}\textbf{Lemma~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{ax}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\textbf{Axiom~\thethmCounter:}}
 	{\end{flushleft}}
 \newenvironment{exe}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
+	{\end{flushleft}}
+\newenvironment{axiomset}{\begin{center}%
+    \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\textbf{Axioms \thesubsection.\arabic{axiomCounter}}\end{center}\hrule}
+    {\hrule}
+\newenvironment{axiom}{\begin{flushleft}%
+	\refstepcounter{axiomPart}\textbf{Axiom~\theAxiomPartCounter:}}
 	{\end{flushleft}}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
