@@ -1,48 +1,23 @@
-%\documentclass[10pt,twoside,a4paper]{book}
-\documentclass[10pt,twoside,a4paper,twocolumn]{book}
-%\documentclass[10pt,twoside,a4paper,titlepage,draft]{book}
+\documentclass[10pt,a4paper]{book}
 
 \usepackage{mystyle}
 
-%\includeonly{mathematics/logic.and.proof/logic.and.proof}
-
 \begin{document}
 \input{./title}
+
 \include{./coverdetails}
 \phantomsection
 \tableofcontents
 
-\include{preface}
+\frontmatter
+\include{introduction}
 
-\part{Mathematics}
 \startsoln
-\input{./mathematics/intro}
-\include{mathematics/logic.and.proof/logic.and.proof}
-\include{mathematics/set/set}
-\include{mathematics/relations/relations}
-\include{mathematics/the.numbers/the.numbers}
-\include{mathematics/algebra/algebra}
-\include{mathematics/linear/linear}
-\include{mathematics/analysis/analysis}
-\include{mathematics/complex/complex}
-\include{mathematics/ode/ode}
-\include{mathematics/pde/pde}
-\include{mathematics/diffgeo/diffgeo}
-\include{mathematics/fourier/fourier}
-\include{mathematics/combinatorics/combinatorics}
-\include{mathematics/statistics/statistics}
-\include{mathematics/numerical/numerical}
 
-
-
-\part{Physics}
-\include{physics/general/general}
-\include{physics/cm/classical_mech}
-\include{physics/em/em}
-\include{physics/qm/qm}
-\include{physics/plasma/plasma}
-\include{physics/particle/particle}
-\include{physics/computational/computational}
+\mainmatter
+\input{mathematics/math}
+\input{physics/phys}
+\input{compsci/compsci}
 
 \stopsoln
 
@@ -53,11 +28,9 @@
 %\addcontentsline{toc}{Section}{Solutions}
 \putsoln
 
-\include{guidelines}
-
-\onecolumn
+\backmatter
+\input{guidelines}
 \input{appendixes/lic}
-\twocolumn
 
 \addcontentsline{toc}{Section}{List of Figures and Tables}
 \listoffigures
@@ -69,5 +42,6 @@
 
 \addcontentsline{toc}{Section}{Index}
 \printindex
+
 
 \end{document}

@@ -1,7 +1,7 @@
 \ProvidesPackage{mystyle}
 
 \usepackage[T1]{fontenc}
-\usepackage[light,math]{iwona}
+%\usepackage[light,math]{iwona}
 \usepackage{geometry}
 \usepackage[usenames,dvipsnames]{color}
 \usepackage{amsmath}
@@ -9,7 +9,7 @@
 \usepackage{amsfonts}
 \usepackage[pdftex]{graphicx}
 \usepackage{fancyhdr}
-\usepackage[english]{babel}
+\usepackage[greek,english]{babel}
 \usepackage{cite}
 \usepackage{latexsym}
 \usepackage[labelstoglobalaux]{bibunits}
@@ -18,16 +18,23 @@
 \usepackage{varioref}
 \usepackage{tikz}
 \usepackage{makeidx}
-\usepackage{aurical}
-\usepackage{xkvltxp}
+%\usepackage{aurical}
+%\usepackage{xkvltxp}
 \usepackage[colorlinks]{hyperref}
 \usepackage[refpage]{nomencl}
 \usepackage{lipsum}
 \usepackage{ifthen}
+%\usepackage{helvetica}
+
+%Tabular stuff
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{caption}
 
 %Writing aids
-%\usepackage{showkeys}
-%\usepackage{showidx}
+\usepackage{showkeys}
+\usepackage{showidx}
 
 
 %lipsum default
@@ -90,34 +97,47 @@
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 % Theorem and defs
+\usetikzlibrary{shapes,snakes}
+
+\tikzstyle{exbox} = [draw=blue, fill=blue!20, very thick,
+    rectangle, rounded corners, inner sep=10pt, inner ysep=20pt]
+\tikzstyle{extitle} =[fill=blue, text=white]
+
 \theoremstyle{plain}
 \newcounter{thmCounter}
 \newcounter{axiomCounter}
 \newcounter{axiomPart}[axiomCounter]
-\renewcommand\thethmCounter{\thesubsection.\arabic{thmCounter}}
+\renewcommand\thethmCounter{\thesection.\arabic{thmCounter}}
 \newcommand\theAxiomPartCounter{\thesubsection.\arabic{axiomCounter} Part \Roman{axiomPart}}
 
 \newenvironment{ex}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
+  \refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{defn}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\color{Bittersweet}\textbf{Definition~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{thm}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\color{Blue}\textbf{Theorem~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{lem}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\color{Sepia}\textbf{Lemma~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{ax}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\textbf{Axiom~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{exe}{\begin{flushleft}%
 	\refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
 	{\end{flushleft}}
+
 \newenvironment{axiomset}{\begin{center}%
     \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\textbf{Axioms \thesubsection.\arabic{axiomCounter}}\end{center}\hrule}
     {\hrule}
+
 \newenvironment{axiom}{\begin{flushleft}%
 	\refstepcounter{axiomPart}\textbf{Axiom~\theAxiomPartCounter:}}
 	{\end{flushleft}}
@@ -139,7 +159,7 @@
 %\bibliographyunit[\section]
 \bibliographyunit[\chapter]
 \bibliography*{bibs}
-\bibliographystyle*{plain}
+\bibliographystyle*{amsplain}
 \bibliographyunit
 
 \let\stdthebibliography\thebibliography
@@ -185,4 +205,11 @@
 
 \newcommand{\putsoln}[0]{%
     \input{solns_temp}%
+}
+
+%%%%%%%%%%%%%%%
+% Greek Language toggle
+%%%%%%%%%%%%%%%
+\newcommand{\greek}[1]{%
+  \selectlanguage{greek} #1 \selectlanguage{english}%
 }

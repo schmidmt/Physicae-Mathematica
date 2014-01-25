@@ -1,0 +1,31 @@
+\subsection{Negation}
+
+Since we have this abstract way of representing statements, we can start to build up a tool-set to work with them.
+We begin with our most simple modifier, the negation of a statement.
+
+\begin{defn}
+  \index{Negation}
+  \label{defn:negation}
+  The \textbf{negation} of a sentance $S$ is true when $S$ is false and false when $S$ is true.
+  We represent this negation of $S$ by $\neg S$.
+\end{defn}
+
+
+We can easily see how this could alter a statement by using a \textbf{Truth Table} \index{Truth Table}.
+To create a Truth Table, we create columns for the input statement's truth value and create columns for each alteration.
+For each row, lexicographically permute T and F to produce all forms of output.
+Now, assign the alteration's with their values depending on the input's truth values.
+The following table shows how this would work for the negation of $S$.
+
+\begin{minipage}{\linewidth}
+  \centering
+  \begin{tabular}{c|c}
+    $S$ & $\neg S$ \\
+    \hline
+    T & F \\
+    F & T \\
+  \end{tabular}
+  \captionof{table}{Truth Table of Negation} \label{tab:negation} 
+\end{minipage}
+
+
