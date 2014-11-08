@@ -27,3 +27,4 @@ book.blg
 *.toc
 solns_temp.tex
 *.swp
+*.sqo

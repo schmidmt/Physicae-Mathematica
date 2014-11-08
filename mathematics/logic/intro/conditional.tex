@@ -1,2 +1,35 @@
 \subsection{Conditional}
 
+
+\begin{defn}
+	\index{Conditional}
+  \label{defn:conditional}
+  A \textbf{conditional}, $ p \rightarrow q$ (IF $p$ THEN $q$), is a connective which is only false if and only if $p$ is true and $q$ is false.
+  In connectives used so far, $p \rightarrow q$ is identical to $\neg (p \land \neg q)$.
+
+  \begin{comment}
+  \begin{itemize}
+    \item[Modus Ponens] If $p$ is True, then the truth hinges on $q$.
+    \item[Transitive] If $p \rightarrow q$ and $q \rightarrow r$, then $p \rightarrow r$ must also be true.
+    \item[Contraposition] If $p \rightarrow q$ is True, then so must $\neg q \rightarrow p$.
+    \item[Reductio]
+  \end{itemize}
+  \end{comment}
+
+\end{defn}
+
+The truth table for a conditional is as follows:
+
+\begin{minipage}{\linewidth}
+  \centering
+  \begin{tabular}{c|c|c}
+    $p$ & $q$ & $p \rightarrow q$ \\
+    \hline
+    T & T & T \\
+    T & F & F \\
+    F & T & T \\
+    F & F & T \\
+  \end{tabular}
+  \captionof{table}{Truth Table for a Conditional} \label{tab:conditonal} 
+\end{minipage}
+

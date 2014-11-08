@@ -1,2 +1,72 @@
 \chapter{Algebra}
 
+
+\begin{defn}
+\index{Binary Structure}
+\label{defn:binary_structure}
+  A \textbf{binary structure} is a group $G$ endowed with a binary operation $\cdot$ represented by $(G, \cdot)$.
+\end{defn}
+
+
+\section{Groups}
+
+This section will be focused on the notion of a group.
+In a high level view, a group is any binary structure for which there will always be a solution to $ A\cdot B = A\cdot C $, where $A,B,C \in G$.
+It may not be immediately obvious how this could fail but lets imagine some scenarios to see where things can go wrong and determine what we require to be true for groups.
+
+First, suppose $A\cdot B = D$ where $D \not\in G$. This immediately causes an issue as how can we know anything about how $D$ if it lies outside our set?
+So, to fix this we stipulate that for all pairs of objects inside $G$, their ``product'' must also be inside $G$. 
+This forms the first axiom of the group axioms, that of \emph{closure}.
+
+Second, we require that the order of evaluation is insignificant i.e.\ the operations are associative.
+Suppose if we did not require $A \cdot ( B \cdot C) = (A \cdot B) \cdot C$, we would have trouble later knowing how to apply the inverse to solve for a particular unknown.
+This forms the second axiom of the group axioms, that of \emph{associativity}.
+The problem here will become more evident by the end of the axioms.
+
+Third and forth axioms deal with applying an inverse to solve the problem.
+First we must have an inverse for each object in the set $G$ and we must also have an identity which will be the result of applying an object to it's inverse.
+These two requirements create the third and forth group axioms: \emph{Identity} and \emph{Inevitability}.
+
+We may define the group structure.
+\begin{defn}
+\index{Group}
+\label{defn:group}
+  A binary structure $(G, \cdot)$, usually denoted just $G$ for groups, is called a \textbf{group} if and only if $G$ satisfies the group axioms (\ref{axioms:group}).
+\end{defn}
+
+\begin{axiomset}
+\label{axioms:group}
+  \textbf{(Group Axioms)}
+  For a binary structure (\ref{defn:binary_structure}) to be considered a \textbf{group}, it must satisfy the following axioms.
+  \begin{axiom}
+     \textbf{Closure:}
+     \begin{equation}
+       \forall x,y \in G \quad x\cdot y \in G
+     \end{equation}
+  \end{axiom}
+  \begin{axiom}
+     \textbf{Associativity:}
+     \begin{equation}
+       \forall x,y,z \in G \quad (x\cdot y) \cdot z = z \cdot (y \cdot z)
+     \end{equation}
+  \end{axiom}
+  \begin{axiom}
+     \textbf{Identity:}
+     \begin{equation}
+       \exists e \in G \quad \forall x \in G \quad e\cdot x = x \cdot e = x
+     \end{equation}
+  \end{axiom}
+  \begin{axiom}
+     \textbf{Invertability:}
+     \begin{equation}
+       \forall x \in G \quad \exists x^{-1} \in G \quad x \cdot x^{-1} = x^{-1} \cdot x = e
+     \end{equation}
+  \end{axiom}
+\end{axiomset}
+
+
+
+\section{Rings}
+
+\section{Fields}
+

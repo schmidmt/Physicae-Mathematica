@@ -1,8 +1,30 @@
-\subsection{Conjunction}
+\subsection{Conjunction (And)}
+
+Now, suppose we have two different statements, say $A$ and $B$.
+We may like combine the two and make a new statement.
+One possible way to combine the two is to require both to be true for the joint statement to be true.
+We call this joining conjunction.
 
 \begin{defn}
-	\index{Conjunction}
-  \index{And|see{Conjunction}}
-  \label{defn:Conjunction}
+\index{Conjunction}
+\index{And|see{Conjunction}}
+\label{defn:conjunction}
   The \textbf{conjunction (and)} operator $\land$ combines two statements, say $A$ and $B$ in such a way that $A\land B$ is only true if both $A$ and $B$ are true. 
 \end{defn}
+
+Conjunction allows us to look at situations where we would care only if all constituent parts are true.
+We can see this strength in a truth table below:
+
+\begin{minipage}{\linewidth}
+  \centering
+  \begin{tabular}{ccc}
+    $A$ & $B$ & $A \land B$ \\
+    \toprule
+    T & T & T \\
+    T & F & F \\
+    F & T & F \\
+    F & F & F \\
+  \end{tabular}
+  \captionof{table}{Truth Table of Conjunction}\label{tab:conjunction} 
+\end{minipage}
+

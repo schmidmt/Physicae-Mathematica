@@ -1,0 +1,13 @@
+\subsection{Grouping and Order of Evaluation}
+
+At times it can be necessary to set an order for evaluation of logical statements.
+For instance, if we have the statement $$ q \land p \lor r $$ it is not clear which order to evaluate the symbols.
+Canonically, we choose the \textbf{Left Action}, in which we act to bring operations leftwards.
+In the example above, this indicates we would like to evaluate $p \land q$ first then the result would be brought to the left side of $\lor r$.
+
+Now suppose we would like first to evaluate $p \lor r$, we would place a set of parenthesis, "$()$", around the that statement producing:
+$$ q \land (p \lor r) $$
+This signals us to evaluate the second pair first before evaluating to the left.
+
+This method established a precedence of operations withing our logical statement: operations are evaluated working out of the deepest nested level first; if no nesting is present, we assume a left action.
+

@@ -1,9 +1,31 @@
-\subsection{Disjunction}
+\subsection{Disjunction (Or)}
+
+Disjunction allows us to create an alternate to conjunction where we only require one constituent statement to be true to ensure the whole is also true.
+This is represented by \emph{OR}.
+Now, this is different from how we use \emph{OR} in informal language.
+In informal language OR usually represents an \emph{exclusive OR (XOR)} (\ref{defn:XOR}) where only one condition can be true where as this OR represents any combination with a true statement is rendered true.
 
 \begin{defn}
 	\index{Disjunction}
   \index{Or|see{Disjunction}}
   \label{defn:Disjunction}
-  A logical \textbf{Disjunction (or)}, $\lor$, combines two statements, say $A$ and $B$, in such a way that $A\lor B$ is true if either $A$ or $B$ is true (including the case where $A$ and $B$ are both true).
+  \label{defn:OR}
+  A logical \textbf{Disjunction (OR)}, $\lor$, combines two statements, say $A$ and $B$, in such a way that $A\lor B$ is true if either $A$ or $B$ is true (including the case where $A$ and $B$ are both true).
 \end{defn}
+
+
+The truth table for OR is given as follows:
+
+\begin{minipage}{\linewidth}
+  \centering
+  \begin{tabular}{ccc}
+    $A$ & $B$ & $A \lor B$ \\
+    \toprule
+    T & T & T \\
+    T & F & T \\
+    F & T & T \\
+    F & F & F \\
+  \end{tabular}
+  \captionof{table}{Truth Table of Disjunction}\label{tab:disjunction} 
+\end{minipage}
 

@@ -70,13 +70,13 @@
 \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
 \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
  
-\fancypagestyle{plain}{ %
+\fancypagestyle{plain}{%
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
 \renewcommand{\footrulewidth}{0pt}}
 
 %%%%%%%%%%%%%%%%%%%%%%%%
-\setcounter{tocdepth}{4}
+\setcounter{tocdepth}{2}
 
 \setlength{\parskip}{3ex plus 2ex minus 2ex} %Rubber Band Paragraph Spacing
 \widowpenalty=300 %Orphan and widow control
@@ -108,7 +108,8 @@
 \newcounter{axiomCounter}
 \newcounter{axiomPart}[axiomCounter]
 \renewcommand\thethmCounter{\thesection.\arabic{thmCounter}}
-\newcommand\theAxiomPartCounter{\thesubsection.\arabic{axiomCounter} Part \Roman{axiomPart}}
+%\newcommand\theAxiomPartCounter{\thesubsection.\arabic{axiomCounter} Part \Roman{axiomPart}}
+\newcommand\theAxiomPartCounter{\Roman{axiomPart}}
 
 \newenvironment{ex}{\begin{flushleft}%
   \refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
@@ -134,12 +135,12 @@
 	\refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
 	{\end{flushleft}}
 
-\newenvironment{axiomset}{\begin{center}%
-    \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\textbf{Axioms \thesubsection.\arabic{axiomCounter}}\end{center}\hrule}
-    {\hrule}
+\newenvironment{axiomset}{%
+    \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\setcounter{axiomPart}{0}\textbf{Axioms \thesubsection.\arabic{axiomCounter}}\begingroup}
+    {\endgroup}
 
-\newenvironment{axiom}{\begin{flushleft}%
-	\refstepcounter{axiomPart}\textbf{Axiom~\theAxiomPartCounter:}}
+\newenvironment{axiom}{\begin{flushleft}\leftskip2em%
+  \refstepcounter{axiomPart}\textbf{\theAxiomPartCounter:}}
 	{\end{flushleft}}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
