@@ -17,6 +17,10 @@
 \usepackage{verbatim}
 \usepackage{varioref}
 \usepackage{tikz}
+\usetikzlibrary{arrows}
+\usetikzlibrary{calc}
+\usetikzlibrary{fit}
+%\usetikzlibrary{cd}
 \usepackage{makeidx}
 %\usepackage{aurical}
 %\usepackage{xkvltxp}
@@ -26,6 +30,12 @@
 \usepackage{ifthen}
 %\usepackage{helvetica}
 
+% Dot2Tex and fix
+\usepackage{dot2texi}
+\makeatletter
+\@ifundefined{verbatim@out}{\newwrite\verbatim@out}{}
+\makeatother
+
 %Tabular stuff
 \usepackage{tabularx}
 \usepackage{ragged2e}
@@ -33,9 +43,12 @@
 \usepackage{caption}
 
 %Writing aids
-\usepackage{showkeys}
-\usepackage{showidx}
+%\usepackage{showkeys}
+%\usepackage{showidx}
 
+
+% Table of contense
+\setcounter{tocdepth}{1} % Doesn't seem to be working...
 
 %lipsum default
 \setlipsumdefault{0}
@@ -60,7 +73,7 @@
 
 %% Fancy Header
 \setlength{\headheight}{15pt}
- 
+
 \pagestyle{fancy}
 \renewcommand{\chaptermark}[1]{\markboth{#1}{}}
 \renewcommand{\sectionmark}[1]{\markright{#1}{}}
@@ -69,7 +82,7 @@
 \fancyhead[LE,RO]{\thepage}
 \fancyhead[RE]{\textit{\nouppercase{\leftmark}}}
 \fancyhead[LO]{\textit{\nouppercase{\rightmark}}}
- 
+
 \fancypagestyle{plain}{%
 \fancyhf{} % remove everything
 \renewcommand{\headrulewidth}{0pt} % remove lines as well
@@ -111,37 +124,41 @@
 %\newcommand\theAxiomPartCounter{\thesubsection.\arabic{axiomCounter} Part \Roman{axiomPart}}
 \newcommand\theAxiomPartCounter{\Roman{axiomPart}}
 
-\newenvironment{ex}{\begin{flushleft}%
-  \refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
-	{\end{flushleft}}
+\makeatletter
+\@addtoreset{thmCounter}{section}
+\makeatother
 
-\newenvironment{defn}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\color{Bittersweet}\textbf{Definition~\thethmCounter:}}
-	{\end{flushleft}}
+\newenvironment{ex}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{thm}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\color{Blue}\textbf{Theorem~\thethmCounter:}}
-	{\end{flushleft}}
+\newenvironment{defn}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\color{Mahogany}\textbf{Definition~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{lem}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\color{Sepia}\textbf{Lemma~\thethmCounter:}}
-	{\end{flushleft}}
+\newenvironment{thm}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\color{Blue}\textbf{Theorem~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{ax}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Axiom~\thethmCounter:}}
-	{\end{flushleft}}
+\newenvironment{lem}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\color{Sepia}\textbf{Lemma~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{exe}{\begin{flushleft}%
-	\refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
-	{\end{flushleft}}
+\newenvironment{ax}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\textbf{Axiom~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{axiomset}{%
-    \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\setcounter{axiomPart}{0}\textbf{Axioms \thesubsection.\arabic{axiomCounter}}\begingroup}
-    {\endgroup}
+\newenvironment{exe}{\par\nobreak\ignorespaces
+    \refstepcounter{thmCounter}\textbf{Exercise~\thethmCounter:}}
+    {\par\nobreak\ignorespaces}
 
-\newenvironment{axiom}{\begin{flushleft}\leftskip2em%
-  \refstepcounter{axiomPart}\textbf{\theAxiomPartCounter:}}
-	{\end{flushleft}}
+\newenvironment{axiomset}{\par\nobreak\ignorespaces%
+    \refstepcounter{thmCounter}\setcounter{axiomCounter}{\value{thmCounter}}\setcounter{axiomPart}{0}\textbf{Axioms \thesection.\arabic{axiomCounter}}\begingroup}
+    {\endgroup\par\nobreak\ignorespaces}
+
+\newenvironment{axiom}{\par\nobreak\ignorespaces\leftskip2em%
+    \refstepcounter{axiomPart}\textbf{\theAxiomPartCounter:}}
+    {\par\nobreak\ignorespaces}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -153,6 +170,8 @@
 %% Logic
 \renewcommand{\land}{\wedge}
 \renewcommand{\lor}{\vee}
+\renewcommand{\iff}{\Leftrightarrow}
+\renewcommand{\implies}{\Rightarrow}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -181,6 +200,7 @@
 \newcommand{\field}[1]{\mathbb{#1}}
 \newcommand{\set}[1]{\mathfrak{#1}}
 \newcommand{\vect}[1]{\mathbf{#1}}
+\newcommand{\union}[0]{\cup}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Nomenclature
@@ -198,7 +218,6 @@
 %    \immediate\write\out{#1}%
 %}
 \newenvironment{soln}{\begin{flushleft}\textbf{Solution~\thethmCounter:}}{\end{flushleft}}
-
 
 \newcommand{\stopsoln}[0]{%
     \immediate\closeout\out%
