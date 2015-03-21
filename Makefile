@@ -4,14 +4,14 @@
 
 .phony: build
 build:
-	pdflatex physicae
+	pdflatex -shell-escape physicae
 	makeindex physicae.idx
-	pdflatex physicae
+	pdflatex -shell-escape physicae
 	./mkbibs.sh || true
-	pdflatex physicae
+	pdflatex -shell-escape physicae
 	makeindex physicae.nlo -s nomencl.ist -o physicae.nls
 	makeindex physicae.idx
-	pdflatex physicae
+	pdflatex -shell-escape physicae
 
 .phony: clean
 clean:
