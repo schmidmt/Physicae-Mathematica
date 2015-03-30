@@ -31,11 +31,9 @@ Why is this naive?
 You'll see in section~\ref{set:russellsparadox}.
 
 \section{A First Pass At Set Theory}
-For out first pass of set theory we will ignore some issues we will deal with later and attempt to lay a foundation of institution, even if it is slightly flawed.
+For out first pass of set theory we will begin with \textbf{Na\"ive Set Theory}, or \textbf{NST}, ignoring future issues for the sake of building a foundational understanding.
 
-\begin{defn}
-\label{set:NaiveSet:defn}
-\index{Naive Set}
+\begin{defn}{Naive Set Theory}
   A \textbf{set} is a collection of items.
   It does not matter, for now, what the items are.
 \index{element}
@@ -54,9 +52,7 @@ Since any collection can be subdivided into other collections it is useful to ma
 To exemplify this, imagine two sets $A$ and $B$.
 If each element of $A$ is in $B$ then $A$ is contained within $B$ or, in other words, $A$ is a subset of $B$.
 To make this formal, the definition of a subset is as follows:
-\begin{defn}
-\label{set:subset:defn}
-\index{Subset}
+\begin{defn}{Subset}
   Suppose $A$ and $B$ are two sets.
   For each $a$ if $a$ is in $A$ and it is also in $B$ then $A$ is a \textbf{subset} of $B$.
   Symbolically this case is represented as $A \subset B$.
@@ -66,10 +62,18 @@ To make this formal, the definition of a subset is as follows:
   $$
 \end{defn}
 
+Having a concept of a subset, we can now define the power set of a set.
+\begin{defn}{Power Set}
+  Let $A$ be a set.
+  The \textbf{power set} of $A$, or $\mathcal{P}(A)$, is the set of all subsets of $A$.
+  Formally, this is defined by:
+  $$
+    \forall x \left\{ x \in \mathcal{P}(A) \iff x \subset A \right\}.
+  $$
+\end{defn}
+
 If two sets are mutually subsets of each other we say the sets are equivalent.
-\begin{defn}
-\label{set:subset:equality:defn}
-\index{Subset Equality}
+\begin{defn}{Set Equality}
   Suppose $A$ and $B$ are two sets.
   If $A \subset B$ and $B \subset A$ then $A$ and $B$ are \textbf{equal}, or $A = B$.
 \end{defn}
@@ -79,9 +83,8 @@ Later we will discuss different types of objects which do retain these qualities
 
 We may combine two sets in two distinct ways: we could group everything together, or we could select just the common elements.
 The first way, grouping everything together is called the union of two sets as more precisely defined here:
-\begin{defn}
-\label{set:union:defn}
-\index{Union}
+\begin{defn}{Union}
+\nomenclature{Union}{The union of two sets is the set of elements in both sets}
   Suppose $A$ and $B$ are two sets.
   The \textbf{union} of $A$ and $B$ is the set of all elements in at least one of the two sets.
   This is symbolically represented as $A \union B$ and is defined by the following sentence:
@@ -94,6 +97,33 @@ The first way, grouping everything together is called the union of two sets as m
   $$
 \end{defn}
 
+For the second way to combine two sets we only collect those elements which are in both sets.
+We call this the \textbf{intersection} of two sets.
+Formally, this is defined by:
+\begin{defn}{Intersection}
+\nomenclature{Intersection}{The intersection of two sets is the set of common elements}
+  Suppose $A$ and $B$ are two sets.
+  The \textbf{intersection} of $A$ and $B$ is the set of all elements at both sets.
+  This is symbolically represented as $A \intersection B$ and is defined by the following sentence:
+  $$
+  \forall a \left\{ a \in A \intersection B \iff (a \in A \land a \in B) \right\}.
+  $$
+  Using set builder notation, it can be defined as follows:
+  $$
+    A \intersection B =  \left\{ a | a \in A \land a \in B \right\}.
+  $$
+\end{defn}
 
 
-\section{Russell's Paradox}
+\subsection{Russell's Paradox}
+Russell's Paradox is a simple proof that NST is inconsistent.
+The proof is a follows: Imagine you have a set which 
+
+$$
+  \exists y \forall x (x \in y \iff P(x))
+$$
+and if $P(x) = x \notin x$, then
+$$
+  y \in y \iff y \notin y
+$$
+which means \textbf{NST} is inconsistent.

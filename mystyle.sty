@@ -43,8 +43,8 @@
 \usepackage{caption}
 
 %Writing aids
-%\usepackage{showkeys}
-%\usepackage{showidx}
+\usepackage{showkeys}
+\usepackage{showidx}
 
 
 % Table of contense
@@ -132,9 +132,9 @@
     \refstepcounter{thmCounter}\color{MidnightBlue}\textbf{Example~\thethmCounter:}}
     {\par\nobreak\ignorespaces}
 
-\newenvironment{defn}{\par\nobreak\ignorespaces%
-    \refstepcounter{thmCounter}\color{Mahogany}\textbf{Definition~\thethmCounter:}}
-    {\par\nobreak\ignorespaces}
+\newenvironment{defn}[1]{\par\nobreak\ignorespaces\label{defn:#1}\index{#1}%
+\refstepcounter{thmCounter}\color{RedOrange}\textbf{Definition~\thethmCounter:}}
+{\par\nobreak\ignorespaces}
 
 \newenvironment{thm}{\par\nobreak\ignorespaces%
     \refstepcounter{thmCounter}\color{Blue}\textbf{Theorem~\thethmCounter:}}
@@ -160,7 +160,6 @@
     \refstepcounter{axiomPart}\textbf{\theAxiomPartCounter:}}
     {\par\nobreak\ignorespaces}
 %%%%%%%%%%%%%%%%%%%%%%%%
-
 
 
 %% QED
@@ -201,6 +200,7 @@
 \newcommand{\set}[1]{\mathfrak{#1}}
 \newcommand{\vect}[1]{\mathbf{#1}}
 \newcommand{\union}[0]{\cup}
+\newcommand{\intersection}[0]{\cap}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Nomenclature
