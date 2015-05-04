@@ -7,6 +7,7 @@
 \usepackage{amsmath}
 \usepackage{amsthm}
 \usepackage{amsfonts}
+\usepackage{amssymb}
 \usepackage[pdftex]{graphicx}
 \usepackage{fancyhdr}
 \usepackage[greek,english]{babel}
@@ -133,7 +134,7 @@
     {\par\nobreak\ignorespaces}
 
 \newenvironment{defn}[1]{\par\nobreak\ignorespaces\label{defn:#1}\index{#1}%
-\refstepcounter{thmCounter}\color{RedOrange}\textbf{Definition~\thethmCounter:}}
+\refstepcounter{thmCounter}\color{Green}\textbf{Definition~\thethmCounter:}}
 {\par\nobreak\ignorespaces}
 
 \newenvironment{thm}{\par\nobreak\ignorespaces%
@@ -163,7 +164,7 @@
 
 
 %% QED
-\renewcommand{\qedsymbol}{\qedhere}
+\renewcommand{\qedsymbol}{$\blacksquare$}
 %%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Logic

@@ -116,14 +116,23 @@ Formally, this is defined by:
 
 
 \subsection{Russell's Paradox}
+\label{set:russellsparadox}
 Russell's Paradox is a simple proof that NST is inconsistent.
 The proof is a follows: Imagine you have a set which 
 
-$$
-  \exists y \forall x (x \in y \iff P(x))
-$$
-and if $P(x) = x \notin x$, then
-$$
-  y \in y \iff y \notin y
-$$
+\begin{proof}[Proof of Russell's Paradox]
+  To show NST is inconsistent, we suppose the following
+  $$
+    \exists y \forall x (x \in y \iff P(x))
+  $$
+  and if $P(x) = x \notin x$, then
+  $$
+    y \in y \iff y \notin y
+  $$
 which means \textbf{NST} is inconsistent.
+\end{proof}
+
+So what went wrong?
+It seems we are unable to make any arbitrary object an element of our set.
+To solve this issue multiple theories were created, including Russell's Type Theory and Zermelo Set Theory.
+
