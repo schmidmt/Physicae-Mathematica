@@ -4,41 +4,61 @@ Zermelo-Frakenkel Set Theory, like any formal theory, is based in a set of axiom
 
 \subsection{The Axioms}
 \begin{axiomset}
-    \begin{center}
-        \textbf{Zermelo-Fraenkel Set Theory with the axiom of choice}
-    \end{center}
+    \textbf{Zermelo-Fraenkel Set Theory}
     \begin{axiom}
         Axiom of Extensionally:
         \begin{equation}
-          \forall x \forall y [ \forall z ( z \in x \Leftrightarrow z \in y) \Rightarrow x = y ]
+          \forall x \forall y [ \forall z ( z \in x \Leftrightarrow z \in y) \implies x = y ]
         \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom of Regularity:
         \begin{equation}
-          \forall x [ \exists a ( a \in x ) \Rightarrow \exists y ( y \in x \land \neg \exists z ( z \in y \land z \in x ))]
+          \forall x [ \exists a ( a \in x ) \implies \exists y ( y \in x \land \neg \exists z ( z \in y \land z \in x ))]
         \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom Schema of Specification
+        Let $\phi$ be any formula in ZFC with free variables $x, y, w_1, w_2, \ldots, w_n$.
+        \begin{equation}
+            \forall z \forall w_1 \forall w_2 \ldots \forall w_n \exists y \forall x [ x \in y \Leftrightarrow (x \in z \land \phi) ]
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom of Pairing
+        \begin{equation}
+            \forall x \forall y \exists z (x \in z \land y \in z)
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom of Union
+        \begin{equation}
+        \forall \mathcal{F} \exists A \forall Y \forall x [(x \in Y \land Y \in \mathcal{F}) \implies x \in A]
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom Schema of Replacement
+        \begin{equation}
+            \forall A \forall w_1 \forall w_2 \ldots \forall w_n \left[ \forall x ( x \in A \implies \exists! y \phi ) \implies \exists B \forall x (x \in A \implies \exists y (y \in B \land \phi)) \right]
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom of Infinity
+        \begin{equation}
+            \exists X \left[ \emptyset \in X \land \forall y (y \in X \implies (x \union \{x\}) \in X)\right]
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Axiom of Power Set
+        \begin{equation}
+            \forall x \exists y \forall z \left[ z \subseteq x \implies z \in y \right]
+        \end{equation}
     \end{axiom}
     \begin{axiom}
         Well-ordering Theorem
+        \begin{equation}
+            \forall X \exists R (R\,\text{well-orders}\, X)
+        \end{equation}
     \end{axiom}
 \end{axiomset}
 
